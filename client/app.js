@@ -2,24 +2,24 @@ var myApp = angular.module('myApp',['ngRoute']);
 
 myApp.config(function($routeProvider){
 	$routeProvider.when('/', {
-		controller:'BooksController',
-		templateUrl: 'views/books.html'
+		controller:'CosmeticsController',
+		templateUrl: 'views/cosmetics.html'
 	})
-	.when('/books', {
-		controller:'BooksController',
-		templateUrl: 'views/books.html'
+	.when('/cosmetics', {
+		controller:'CosmeticsController',
+		templateUrl: 'views/cosmetics.html'
 	})
-	.when('/books/details/:id',{
-		controller:'BooksController',
-		templateUrl: 'views/book_details.html'
+	.when('/cosmetics/details/:id',{
+		controller:'CosmeticsController',
+		templateUrl: 'views/cosmetic_details.html'
 	})
-	.when('/books/add',{
-		controller:'BooksController',
-		templateUrl: 'views/add_book.html'
+	.when('/cosmetics/add',{
+		controller:'CosmeticsController',
+		templateUrl: 'views/add_cosmetic.html'
 	})
-	.when('/books/edit/:id',{
-		controller:'BooksController',
-		templateUrl: 'views/edit_book.html'
+	.when('/cosmetics/edit/:id',{
+		controller:'CosmeticsController',
+		templateUrl: 'views/edit_cosmetic.html'
 	})
 	.otherwise({
 		redirectTo: '/'

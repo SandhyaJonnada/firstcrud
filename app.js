@@ -6,17 +6,20 @@ const mongoose = require('mongoose');
 app.use(express.static(__dirname+'/client'));
 app.use(bodyParser.json());
 
-Genre =require('./models/genre');
-Book =require('./models/book');
+//Genre =require('./models/genre');
+Cosmetic=require('./models/cosmetic');
 
 // Connect to Mongoose
-mongoose.connect('mongodb://sandhya:sandhya@ds014808.mlab.com:14808/crudoperations');
+mongoose.connect('mongodb://localhost/warehouse');
 var db = mongoose.connection;
 
 app.get('/', (req, res) => {
-	res.send('Please use /api/books or /api/genres');
+	res.send('Please use /api/cosmetics');
 });
 
+
+
+/*
 app.get('/api/genres', (req, res) => {
 	Genre.getGenres((err, genres) => {
 		if(err){
@@ -25,6 +28,7 @@ app.get('/api/genres', (req, res) => {
 		res.json(genres);
 	});
 });
+
 
 app.post('/api/genres', (req, res) => {
 	var genre = req.body;
@@ -35,6 +39,7 @@ app.post('/api/genres', (req, res) => {
 		res.json(genre);
 	});
 });
+
 
 app.put('/api/genres/:_id', (req, res) => {
 	var id = req.params._id;
@@ -47,6 +52,7 @@ app.put('/api/genres/:_id', (req, res) => {
 	});
 });
 
+
 app.delete('/api/genres/:_id', (req, res) => {
 	var id = req.params._id;
 	Genre.removeGenre(id, (err, genre) => {
@@ -57,52 +63,55 @@ app.delete('/api/genres/:_id', (req, res) => {
 	});
 });
 
-app.get('/api/books', (req, res) => {
-	Book.getBooks((err, books) => {
+*/
+
+
+app.get('/api/cosmetics', (req, res) => {
+	Cosmetic.getCosmetics((err, cosmetics) => {
 		if(err){
 			throw err;
 		}
-		res.json(books);
+		res.json(cosmetics);
 	});
 });
 
-app.get('/api/books/:_id', (req, res) => {
-	Book.getBookById(req.params._id, (err, book) => {
+app.get('/api/cosmetics/:_id', (req, res) => {
+	Cosmetic.getCosmeticById(req.params._id, (err, cosmetic) => {
 		if(err){
 			throw err;
 		}
-		res.json(book);
+		res.json(cosmetic);
 	});
 });
 
-app.post('/api/books', (req, res) => {
-	var book = req.body;
-	Book.addBook(book, (err, book) => {
+app.post('/api/cosmetics', (req, res) => {
+	var cosmetic = req.body;
+	Cosmetic.addCosmetic(cosmetic, (err, cosmetic) => {
 		if(err){
 			throw err;
 		}
-		res.json(book);
+		res.json(cosmetic);
 	});
 });
 
-app.put('/api/books/:_id', (req, res) => {
+app.put('/api/cosmetics/:_id', (req, res) => {
 	var id = req.params._id;
-	var book = req.body;
-	Book.updateBook(id, book, {}, (err, book) => {
+	var cosmetic = req.body;
+	Cosmetic.updateCosmetic(id, cosmetic, {}, (err, cosmetic) => {
 		if(err){
 			throw err;
 		}
-		res.json(book);
+		res.json(cosmetic);
 	});
 });
 
-app.delete('/api/books/:_id', (req, res) => {
+app.delete('/api/cosmetics/:_id', (req, res) => {
 	var id = req.params._id;
-	Book.removeBook(id, (err, book) => {
+	Cosmetic.removeCosmetic(id, (err, cosmetic) => {
 		if(err){
 			throw err;
 		}
-		res.json(book);
+		res.json(cosmetic);
 	});
 });
 

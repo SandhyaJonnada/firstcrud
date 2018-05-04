@@ -1,0 +1,49 @@
+<a href="#/books">Go Back</a>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">update cosmetic details</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+      <form ng-submit="updateCosmetic()" ng-init="getCosmetic()">
+        <div class="form-group">
+          <label>Item</label>
+          <input type="text" class="form-control" ng-model="cosmetic.item" placeholder="Item">
+        </div>
+        <div class="form-group">
+          <label>Type</label>
+          <select ng-model="cosmetic.type" class="form-control">
+            <option value="Eye-makeup">Eye-makeup</option>
+            <option value="SkinCare">Skin Care</option>
+            <option value="HairCare">Hair Care</option>
+            <option value="Facemakeup">Face makeup</option>
+        
+          </select>
+        </div>
+       
+        <div class="form-group">
+          <label>Brand</label>
+          <input type="text" class="form-control" ng-model="cosmetic.brand" placeholder="Brand">
+        </div>
+        <div class="form-group">
+          <label>Price</label>
+          <input type="text" class="form-control" ng-model="cosmetic.price" placeholder="Price">
+        </div>
+        
+         
+        <div class="form-group">
+          <label>Image URL</label>
+          <input type="text" class="form-control" ng-model="cosmetic.image_url" placeholder="Image URL">
+        </div>
+        <div class="form-group">
+          <label>Buy URL</label>
+          <input type="text" class="form-control" ng-model="cosmetic.buy_url" placeholder="Buy URL">
+        </div>
+       
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+    </div>
+  </div>
+</div>
